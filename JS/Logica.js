@@ -15,12 +15,12 @@ function AoClicarConverterParaDecimal() {
     var elementoMinuto = document.getElementById("Minuto")
     var elementoSegundo = document.getElementById("Segundo")
 
-    if (elementoHora.value === "" || elementoHora.value === null || elementoHora.value === undefined) {
-        InvalidarCampo(elementoHora)
-    } else if (elementoMinuto.value === "" || elementoMinuto.value === null || elementoMinuto.value === undefined) {
-        InvalidarCampo(elementoMinuto)
-    } else if (elementoSegundo.value === "" || elementoSegundo.value === null || elementoSegundo.value === undefined) {
-        InvalidarCampo(elementoSegundo)
+    if (ExecutarValidacaoCampoHora(parseInt(elementoHora.value))) {
+        InvalidarCampoHorario(elementoHora)
+    } else if (ExecutarValidacaoCampoMinuto(parseInt(elementoMinuto.value))) {
+        InvalidarCampoHorario(elementoMinuto)
+    } else if (ExecutarValidacaoCampoSegundo(parseInt(elementoSegundo.value))) {
+        InvalidarCampoHorario(elementoSegundo)
     } else {
         var resultado = ConverterSexagesimalParaDecimal(parseFloat(elementoHora.value), parseFloat(elementoMinuto.value),parseFloat(elementoSegundo.value))
         document.getElementById("ResultadoDecimal").value = resultado.toFixed(4)
@@ -29,6 +29,46 @@ function AoClicarConverterParaDecimal() {
         RevalidarCampo(elementoMinuto)
         RevalidarCampo(elementoSegundo)
     }
+}
+
+function ExecutarValidacaoCampoHora(hora) {
+    if (Number.isNaN(hora) || hora === "" || hora === null || hora === undefined) {
+        alert("Valor de hora inválido!")
+        return false
+    } else if(hora < 0) {
+        alert("Valor de hora não pode ser menor que 0!")
+        return false
+    }
+}
+
+function ExecutarValidacaoCampoMinuto(minuto) {
+    if (Number.isNaN(minuto) || minuto === "" || minuto === null || minuto === undefined) {
+        alert("Valor de minuto inválido!")
+        return false
+    } else if(minuto < 0) {
+        alert("Valor de minuto não pode ser menor que 0!")
+        return false
+    } else if(minuto > 59) {
+        alert("Valor de minuto não pode ser maior que 59!")
+        return false
+    }
+
+    return true
+}
+
+function ExecutarValidacaoCampoSegundo(segundo) {
+    if (Number.isNaN(segundo) || segundo === "" || segundo === null || segundo === undefined) {
+        alert("Valor de segundo inválido!")
+        return false
+    } else if(segundo < 0) {
+        alert("Valor de segundo não pode ser menor que 0!")
+        return false
+    } else if(segundo > 59) {
+        alert("Valor de segundo não pode ser maior que 59!")
+        return false
+    }
+
+    return true
 }
 
 function ConverterSexagesimalParaDecimal(hora, minuto, segundo) {
@@ -50,8 +90,24 @@ function ConverterDecimalParaSexagesimal(valorDecimal) {
             (segundoSexagesimal < 10 ? "0" + Math.round(segundoSexagesimal) : Math.round(segundoSexagesimal)) 
 }
 
-function InvalidarCampoHora(campo) {
-    alert("Não foi informado o valor de hora.")
+function InvalidarCampoHorario(campo) {
+    switch(campo.id) {
+        case "Hora": {
+            alert("Não foi informado o valor de hora.")
+            break
+        }
+
+        case "Minuto": {
+            alert("Não foi informado o valor de minuto.")
+            break
+        }
+
+        case "Segundo": {
+            alert("Não foi informado o valor de segundo.")
+            break
+        }
+    }
+
     campo.style.borderColor = "red"
 }
 
