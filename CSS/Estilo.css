@@ -1,0 +1,51 @@
+input{
+    border-radius: 3px;
+    border: 1px solid silver;
+}
+
+h2 {
+    text-align: center;
+}
+
+#Cabecalho{
+    /* background: #85DCFC; */
+    /* height: 100px; */
+    margin: 0;
+    text-align: center;
+}
+
+#Cabecalho h1 {
+    /* border: 1px solid red; */
+    /* display: block; */
+    margin-top: 0;
+    margin-bottom: auto;
+}
+
+#Conteudo{
+    /* border: 1px solid red; */
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Conversores {
+    /* border: 1px solid red; */
+    margin: 10px auto;
+    padding: 10px;
+    width: 570px;
+}
+
+.InfoSexagesimal {
+    text-align: center;
+    width: 30px;
+}
+
+.Resultado {
+    display: inline-block;
+    margin: 4px 0;
+}
+
+#InfoDecimal, .Resultado {
+    text-align: right;
+    width: 115px;
+}
