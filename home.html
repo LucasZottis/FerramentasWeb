@@ -1,0 +1,50 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./Estilo.css">
+        <title>Ferramentas Web</title>
+    </head>
+    <body>
+        <header>
+            <div id="Cabecalho">
+                <h1>Web Tools</h1>
+            </div>
+        </header>
+
+        <h2>Conversor de sistemas númericos</h2>
+
+        <div id="Conteudo">
+            <div class="Conversores">
+                <h3>Conversor sistema sexagesimal (formato de hora) para sistema decimal</h3>
+                <div>
+                    <div>
+                        <input class="InfoSexagesimal" id="Hora" type="text" placeholder="HH"> : 
+                        <input class="InfoSexagesimal" id="Minuto" type="text" placeholder="MM"> : 
+                        <input class="InfoSexagesimal" id="Segundo" type="text" placeholder="SS">
+
+                        <input type="button" value="Converter" onclick="AoClicarConverterParaDecimal()">
+                    </div>
+
+                    <input class="Resultado" id="ResultadoDecimal" type="text" placeholder="Resultado" disabled="disabled">
+                    <!-- <input type="button" value="Limpar" onclick="AoClicarLimpar()"> -->
+                </div>
+            </div>
+    
+            <div class="Conversores">
+                <h3>Conversor sistema decimal para sistema sexagesimal (formato de hora)</h3>
+                <div>
+                    <div id="">
+                        <input id="InfoDecimal" type="text" placeholder="Valor decimal">
+                        <input type="button" value="Converter" onclick="AoClicarConverterParaSexagesimal()">
+                    </div>
+
+                    <input class="Resultado" id="ResultadoSexagesimal" type="text" placeholder="Resultado" disabled="disabled">
+                    <!-- <input type="button" value="Limpar" onclick="AoClicarLimpar()"> -->
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="./Logica.js"></script>
+</html>
