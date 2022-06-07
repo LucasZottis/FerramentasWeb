@@ -2,6 +2,10 @@
     font-family: 'Overlock', cursive;
 }
 
+button {
+    cursor: pointer;
+}
+
 input{
     border-radius: 3px;
     border: 1px solid silver;
@@ -15,7 +19,7 @@ h2 {
     height: 100px;
     margin: 0;
     text-align: center;
-    background: lightblue;
+    background: rgb(173, 230, 178);
 }
 
 #Cabecalho h1 {
@@ -24,7 +28,8 @@ h2 {
 }
 
 #Conteudo{
-    border: 1px solid lightgray;
+    background: rgb(173, 230, 178);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.397);
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -33,7 +38,8 @@ h2 {
 }
 
 .Conversores {
-    border: 1px solid lightgray;
+    background: white;
+
     border-radius: 7.5px;
     margin: 10px;
     padding: 10px 30px;
@@ -46,14 +52,10 @@ h2 {
 
 .Resultado {
     display: inline-block;
-    margin: 4px 0;
+    margin: 2 0;
 }
 
 #InfoDecimal, .Resultado {
     text-align: right;
     width: 115px;
-}
-
-#ResultadoDecimal, #ResultadoSexagesimal {
-    cursor: pointer;
 }
