@@ -1,3 +1,7 @@
+* {
+    font-family: 'Overlock', cursive;
+}
+
 input{
     border-radius: 3px;
     border: 1px solid silver;
@@ -29,7 +33,8 @@ h2 {
 }
 
 .Conversores {
-    /* border: 1px solid red; */
+    border: 1px solid lightgray;
+    border-radius: 7.5px;
     margin: 10px auto;
     padding: 10px;
     width: 570px;
