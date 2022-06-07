@@ -12,32 +12,31 @@ h2 {
 }
 
 #Cabecalho{
-    /* background: #85DCFC; */
-    /* height: 100px; */
+    height: 100px;
     margin: 0;
     text-align: center;
+    background: lightblue;
 }
 
 #Cabecalho h1 {
-    /* border: 1px solid red; */
-    /* display: block; */
     margin-top: 0;
-    margin-bottom: auto;
+    padding: 30px
 }
 
 #Conteudo{
-    /* border: 1px solid red; */
+    border: 1px solid lightgray;
     display: flex;
     margin-left: auto;
     margin-right: auto;
+    width: 700;
+    border-radius: 7.5px;
 }
 
 .Conversores {
     border: 1px solid lightgray;
     border-radius: 7.5px;
-    margin: 10px auto;
-    padding: 10px;
-    width: 570px;
+    margin: 10px;
+    padding: 10px 30px;
 }
 
 .InfoSexagesimal {
