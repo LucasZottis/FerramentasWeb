@@ -65,7 +65,7 @@ function ExecutarValidacaoCampoHorario(campo) {
         ExecutarValidacaoCampoMinutoESegundo(campo)
     }
 
-    return !VerificarTemMensagem()
+    return VerificarTemMensagem()
 }
 
 function ExecutarValidacaoCampoHora(campo) {
