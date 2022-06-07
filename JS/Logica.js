@@ -2,16 +2,24 @@ var mensagem = ""
 
 //#region Eventos
 
-function AoClicarConverterParaSexagesimal() {
+function AoClicarConverterParaHora() {
     var elementoDecimal = document.getElementById("InfoDecimal")
+    var valorDecimal = parseFloat(elementoDecimal.value.replace(',', '.'))
 
-    if (Number.isNaN(parseFloat(elementoDecimal.value))) {
-        InvalidarCampoDecimal(elementoDecimal)
-    } else {
-        var valorHora = ConverterDecimalParaSexagesimal(parseFloat(elementoDecimal.value))
-        document.getElementById("ResultadoSexagesimal").value = valorHora
-        RevalidarCampo(elementoDecimal)
+    if (VerificarNumeroInvalido(valorDecimal)){
+        mensagem += "Valor decimal inválido!"
+        InvalidarCampo(elementoDecimal)
+        LimparCampo(elementoDecimal)
     }
+
+    if (VerificarTemMensagem()) {
+        MostrarMensagem()
+        return
+    }
+
+    var valorHora = ConverterDecimalParaSexagesimal(valorDecimal)
+    document.getElementById("ResultadoSexagesimal").value = valorHora
+    RevalidarCampo(elementoDecimal)
 }
 
 function AoClicarConverterParaDecimal() {
@@ -19,18 +27,21 @@ function AoClicarConverterParaDecimal() {
     var elementoMinuto = document.getElementById("Minuto")
     var elementoSegundo = document.getElementById("Segundo")
     
-    if (!ExecutarValidacaoCampoHorario(elementoHora) ) {
-        InvalidarCampoHorario(elementoHora)
+    if (!ExecutarValidacaoCampoHora(elementoHora)) {
+        InvalidarCampo(elementoHora)
+        LimparCampo(elementoHora)
     }
 
-    if (!ExecutarValidacaoCampoHorario(elementoMinuto) ) {
-        InvalidarCampoHorario(elementoMinuto)
+    if (!ExecutarValidacaoCampoMinutoESegundo(elementoMinuto)) {
+        InvalidarCampo(elementoMinuto)
+        LimparCampo(elementoMinuto)
     }
-
-    if (!ExecutarValidacaoCampoHorario(elementoSegundo) ) {
-        InvalidarCampoHorario(elementoSegundo)
+    
+    if(!ExecutarValidacaoCampoMinutoESegundo(elementoSegundo)) {
+        InvalidarCampo(elementoSegundo)
+        LimparCampo(elementoSegundo)
     }
-
+ 
     if (VerificarTemMensagem()) {
         MostrarMensagem()
         return
@@ -44,61 +55,88 @@ function AoClicarConverterParaDecimal() {
     RevalidarCampo(elementoSegundo)
 }
 
-function AoDigitarCaractere(evento) {
-    const keyCode = (evento.keyCode ? evento.keyCode : evento.wich)
+// function AoDigitarCaractere(evento) {
+//     const keyCode = (evento.keyCode ? evento.keyCode : evento.wich)
 
-    if (keyCode < 47 && keyCode > 58) {
-        return false
-    }
-}
+//     if (keyCode < 47 && keyCode > 58) {
+//         return false
+//     }
+// }
 
 function AoDeixarCampo(campo) {
-    if (campo.value !== "" && ExecutarValidacaoCampoHorario(campo)) {
-        InvalidarCampoHorario(campo)
-        campo.value = ""
+    if (campo.value === "") {
         return
+    }
+
+    if (campo.id.toLowerCase() === "InfoDecimal" ) {
+        if (VerificarNumeroInvalido(parseFloat(campo.value))){
+            mensagem += "Valor decimal inválido!"
+        } else {
+            RevalidarCampo(campo)
+        }
+    } else if (campo.id.toLowerCase() === "hora") {
+        if (ExecutarValidacaoCampoHora(campo)) {
+            RevalidarCampo(campo)
+            return
+        }
+    } else {
+        if (ExecutarValidacaoCampoMinutoESegundo(campo)) {
+            RevalidarCampo(campo)
+            return
+        }
+    }
+ 
+    if (VerificarTemMensagem()) {
+        MostrarMensagem()
+        InvalidarCampo(campo)
+        LimparCampo(campo)
     }
 }
 
 //#endregion Eventos
 
-function ExecutarValidacaoCampoHorario(campo) {
-    if (campo.id.toLowerCase() === "hora") {
-        ExecutarValidacaoCampoHora(campo)
-    } else {
-        ExecutarValidacaoCampoMinutoESegundo(campo)
-    }
-
-    return VerificarTemMensagem()
-}
+//#region Validações
 
 function ExecutarValidacaoCampoHora(campo) {
     if (VerificarNumeroInvalido(parseInt(campo.value))) {
         mensagem += "Valor de hora inválido!"
+        return false
     } else if (parseInt(campo.value) < 0) {
         mensagem += "Valor de hora não pode ser menor que 0!"
+        return false
     }
 
-    if (VerificarTemMensagem()) {
-        campo.value = ""
-        MostrarMensagem()
-    }
+    return true
 }
 
 function ExecutarValidacaoCampoMinutoESegundo(campo) {
     if(VerificarNumeroInvalido(parseInt(campo.value))) {
-        mensagem += "Valor de " + campo.id.toLowerCase() + "inválido!"
+        mensagem += "Valor de " + campo.id.toLowerCase() + " inválido!"
+        return false
     } else if(parseInt(campo.value) < 0) {
         mensagem += "Valor de " + campo.id.toLowerCase() + " não pode ser menor que 0!"
+        return false
     } else if(parseInt(campo.value) > 59) {
         mensagem += "Valor de " + campo.id.toLowerCase() + " não pode ser maior que 59!"
+        return false
     }
 
-    if (VerificarTemMensagem()) {
-        campo.value = ""
-        MostrarMensagem()
-    }
+    return true
 }
+
+//#endregion Validações
+
+//#region Verificações
+
+function VerificarTemMensagem() {
+    return mensagem !== ""
+}
+
+function VerificarNumeroInvalido(numero) {
+    return Number.isNaN(numero) || (numero === "") || (numero === null) || (numero === undefined)
+}
+
+//#endregion Verificações
 
 function ConverterSexagesimalParaDecimal(hora, minuto, segundo) {
     var minutoDecimal = minuto / 60
@@ -119,12 +157,7 @@ function ConverterDecimalParaSexagesimal(valorDecimal) {
             (segundoSexagesimal < 10 ? "0" + Math.round(segundoSexagesimal) : Math.round(segundoSexagesimal)) 
 }
 
-function InvalidarCampoHorario(campo) {
-    campo.style.borderColor = "red"
-}
-
-function InvalidarCampoDecimal(campo) {
-    alert("Valor decimal informado está inválido.")
+function InvalidarCampo(campo) {
     campo.style.borderColor = "red"
 }
 
@@ -137,10 +170,6 @@ function MostrarMensagem() {
     mensagem = ""
 }
 
-function VerificarTemMensagem() {
-    return mensagem !== ""
-}
-
-function VerificarNumeroInvalido(numero) {
-    return Number.isNaN(numero) || (numero === "") || (numero === null) || (numero === undefined)
+function LimparCampo(campo) {
+    campo.value = ""
 }

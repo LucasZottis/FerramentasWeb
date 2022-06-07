@@ -36,8 +36,8 @@
                 <h3>Conversor número decimal para horas</h3>
                 <div>
                     <div id="">
-                        <input id="InfoDecimal" type="text" placeholder="Valor decimal">
-                        <input type="button" value="Converter" onclick="AoClicarConverterParaSexagesimal()">
+                        <input id="InfoDecimal" type="text" placeholder="Valor decimal" onblur="AoDeixarCampo(this)">
+                        <input type="button" value="Converter" onclick="AoClicarConverterParaHora()">
                     </div>
 
                     <input class="Resultado" id="ResultadoSexagesimal" type="text" placeholder="Resultado" disabled="disabled">
