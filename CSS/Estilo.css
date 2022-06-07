@@ -49,3 +49,7 @@ h2 {
     text-align: right;
     width: 115px;
 }
+
+#ResultadoDecimal, #ResultadoSexagesimal {
+    cursor: pointer;
+}
