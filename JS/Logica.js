@@ -15,15 +15,19 @@ function AoClicarConverterParaSexagesimal() {
 }
 
 function AoClicarConverterParaDecimal() {
-    if (!ExecutarValidacaoCampoHorario(elementoHora.id.toLowerCase(), parseInt(elementoHora.value)) ) {
+    var elementoHora = document.getElementById("Hora")
+    var elementoMinuto = document.getElementById("Minuto")
+    var elementoSegundo = document.getElementById("Segundo")
+    
+    if (!ExecutarValidacaoCampoHorario(elementoHora) ) {
         InvalidarCampoHorario(elementoHora)
     }
 
-    if (!ExecutarValidacaoCampoHorario(elementoMinuto.id.toLowerCase(), parseInt(elementoMinuto.value)) ) {
+    if (!ExecutarValidacaoCampoHorario(elementoMinuto) ) {
         InvalidarCampoHorario(elementoMinuto)
     }
 
-    if (!ExecutarValidacaoCampoHorario(elementoSegundo.id.toLowerCase(), parseInt(elementoSegundo.value)) ) {
+    if (!ExecutarValidacaoCampoHorario(elementoSegundo) ) {
         InvalidarCampoHorario(elementoSegundo)
     }
 
