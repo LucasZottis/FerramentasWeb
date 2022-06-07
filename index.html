@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,9 +20,9 @@
                 <h3>Conversor sistema sexagesimal (formato de hora) para sistema decimal</h3>
                 <div>
                     <div>
-                        <input class="InfoSexagesimal" id="Hora" type="text" placeholder="HH"> : 
-                        <input class="InfoSexagesimal" id="Minuto" type="text" placeholder="MM"> : 
-                        <input class="InfoSexagesimal" id="Segundo" type="text" placeholder="SS">
+                        <input class="InfoSexagesimal" id="Hora" type="text" placeholder="HH" maxlength="2" onblur="AoDeixarCampo(this)"> : 
+                        <input class="InfoSexagesimal" id="Minuto" type="text" placeholder="MM" maxlength="2" onblur="AoDeixarCampo(this)"> :
+                        <input class="InfoSexagesimal" id="Segundo" type="text" placeholder="SS" maxlength="2" onblur="AoDeixarCampo(this)">
 
                         <input type="button" value="Converter" onclick="AoClicarConverterParaDecimal()">
                     </div>

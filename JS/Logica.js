@@ -1,3 +1,7 @@
+var mensagem = ""
+
+//#region Eventos
+
 function AoClicarConverterParaSexagesimal() {
     var elementoDecimal = document.getElementById("InfoDecimal")
 
@@ -11,64 +15,85 @@ function AoClicarConverterParaSexagesimal() {
 }
 
 function AoClicarConverterParaDecimal() {
-    var elementoHora = document.getElementById("Hora")
-    var elementoMinuto = document.getElementById("Minuto")
-    var elementoSegundo = document.getElementById("Segundo")
-
-    if (ExecutarValidacaoCampoHora(parseInt(elementoHora.value))) {
+    if (!ExecutarValidacaoCampoHorario(elementoHora.id.toLowerCase(), parseInt(elementoHora.value)) ) {
         InvalidarCampoHorario(elementoHora)
-    } else if (ExecutarValidacaoCampoMinuto(parseInt(elementoMinuto.value))) {
+    }
+
+    if (!ExecutarValidacaoCampoHorario(elementoMinuto.id.toLowerCase(), parseInt(elementoMinuto.value)) ) {
         InvalidarCampoHorario(elementoMinuto)
-    } else if (ExecutarValidacaoCampoSegundo(parseInt(elementoSegundo.value))) {
+    }
+
+    if (!ExecutarValidacaoCampoHorario(elementoSegundo.id.toLowerCase(), parseInt(elementoSegundo.value)) ) {
         InvalidarCampoHorario(elementoSegundo)
+    }
+
+    if (VerificarTemMensagem()) {
+        MostrarMensagem()
+        return
+    }
+
+    var resultado = ConverterSexagesimalParaDecimal(parseFloat(elementoHora.value), parseFloat(elementoMinuto.value),parseFloat(elementoSegundo.value))
+    document.getElementById("ResultadoDecimal").value = resultado.toFixed(4)
+
+    RevalidarCampo(elementoHora)
+    RevalidarCampo(elementoMinuto)
+    RevalidarCampo(elementoSegundo)
+}
+
+function AoDigitarCaractere(evento) {
+    const keyCode = (evento.keyCode ? evento.keyCode : evento.wich)
+
+    if (keyCode < 47 && keyCode > 58) {
+        return false
+    }
+}
+
+function AoDeixarCampo(campo) {
+    if (campo.value !== "" && ExecutarValidacaoCampoHorario(campo)) {
+        InvalidarCampoHorario(campo)
+        campo.value = ""
+        return
+    }
+}
+
+//#endregion Eventos
+
+function ExecutarValidacaoCampoHorario(campo) {
+    if (campo.id.toLowerCase() === "hora") {
+        ExecutarValidacaoCampoHora(campo)
     } else {
-        var resultado = ConverterSexagesimalParaDecimal(parseFloat(elementoHora.value), parseFloat(elementoMinuto.value),parseFloat(elementoSegundo.value))
-        document.getElementById("ResultadoDecimal").value = resultado.toFixed(4)
+        ExecutarValidacaoCampoMinutoESegundo(campo)
+    }
 
-        RevalidarCampo(elementoHora)
-        RevalidarCampo(elementoMinuto)
-        RevalidarCampo(elementoSegundo)
+    return !VerificarTemMensagem()
+}
+
+function ExecutarValidacaoCampoHora(campo) {
+    if (VerificarNumeroInvalido(parseInt(campo.value))) {
+        mensagem += "Valor de hora inválido!"
+    } else if (parseInt(campo.value) < 0) {
+        mensagem += "Valor de hora não pode ser menor que 0!"
+    }
+
+    if (VerificarTemMensagem()) {
+        campo.value = ""
+        MostrarMensagem()
     }
 }
 
-function ExecutarValidacaoCampoHora(hora) {
-    if (Number.isNaN(hora) || hora === "" || hora === null || hora === undefined) {
-        alert("Valor de hora inválido!")
-        return false
-    } else if(hora < 0) {
-        alert("Valor de hora não pode ser menor que 0!")
-        return false
-    }
-}
-
-function ExecutarValidacaoCampoMinuto(minuto) {
-    if (Number.isNaN(minuto) || minuto === "" || minuto === null || minuto === undefined) {
-        alert("Valor de minuto inválido!")
-        return false
-    } else if(minuto < 0) {
-        alert("Valor de minuto não pode ser menor que 0!")
-        return false
-    } else if(minuto > 59) {
-        alert("Valor de minuto não pode ser maior que 59!")
-        return false
+function ExecutarValidacaoCampoMinutoESegundo(campo) {
+    if(VerificarNumeroInvalido(parseInt(campo.value))) {
+        mensagem += "Valor de " + campo.id.toLowerCase() + "inválido!"
+    } else if(parseInt(campo.value) < 0) {
+        mensagem += "Valor de " + campo.id.toLowerCase() + " não pode ser menor que 0!"
+    } else if(parseInt(campo.value) > 59) {
+        mensagem += "Valor de " + campo.id.toLowerCase() + " não pode ser maior que 59!"
     }
 
-    return true
-}
-
-function ExecutarValidacaoCampoSegundo(segundo) {
-    if (Number.isNaN(segundo) || segundo === "" || segundo === null || segundo === undefined) {
-        alert("Valor de segundo inválido!")
-        return false
-    } else if(segundo < 0) {
-        alert("Valor de segundo não pode ser menor que 0!")
-        return false
-    } else if(segundo > 59) {
-        alert("Valor de segundo não pode ser maior que 59!")
-        return false
+    if (VerificarTemMensagem()) {
+        campo.value = ""
+        MostrarMensagem()
     }
-
-    return true
 }
 
 function ConverterSexagesimalParaDecimal(hora, minuto, segundo) {
@@ -91,23 +116,6 @@ function ConverterDecimalParaSexagesimal(valorDecimal) {
 }
 
 function InvalidarCampoHorario(campo) {
-    switch(campo.id) {
-        case "Hora": {
-            alert("Não foi informado o valor de hora.")
-            break
-        }
-
-        case "Minuto": {
-            alert("Não foi informado o valor de minuto.")
-            break
-        }
-
-        case "Segundo": {
-            alert("Não foi informado o valor de segundo.")
-            break
-        }
-    }
-
     campo.style.borderColor = "red"
 }
 
@@ -118,4 +126,17 @@ function InvalidarCampoDecimal(campo) {
 
 function RevalidarCampo(campo) {
     campo.style.borderColor = "black"
+}
+
+function MostrarMensagem() {
+    alert(mensagem)
+    mensagem = ""
+}
+
+function VerificarTemMensagem() {
+    return mensagem !== ""
+}
+
+function VerificarNumeroInvalido(numero) {
+    return Number.isNaN(numero) || (numero === "") || (numero === null) || (numero === undefined)
 }
