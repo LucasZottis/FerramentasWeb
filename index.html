@@ -52,8 +52,8 @@
                     <h3>Conversor número decimal para horas</h3>
                     <div>
                         <form action="">
-                            <input id="InfoDecimal" type="text" placeholder="Valor decimal" onblur="AoDeixarCampo(this)">
-                            <button class="BotaoConversor" type="submit" onclick="AoClicarConverterParaHora()">Converter</button>
+                            <input id="InfoDecimal" type="text" pattern="[0-9]" placeholder="Valor decimal" onblur="AoDeixarCampo(this)">
+                            <button class="BotaoConversor" type="button" onclick="AoClicarConverterParaHora()">Converter</button>
                             <input class="Resultado" id="ResultadoSexagesimal" type="text" placeholder="Resultado" disabled="disabled">
                         </form>
                         <!-- <input type="button" value="Limpar" onclick="AoClicarLimpar()"> -->
