@@ -12,48 +12,47 @@
         <title>Ferramentas Web</title>
     </head>
     <body>
-        <header>
-            <div id="Cabecalho">
-                <h1>Web Tools</h1>
-            </div>
-        </header>
-
-        <h2>Conversor de sistemas numéricos</h2>
-
-        <div id="Conteudo">
-            <div class="Conversores">
-                <h3>Conversor de horas para número decimal</h3>
-                <div>
-                    <form action="">
-                        <input class="InfoSexagesimal" id="Hora" type="text" placeholder="HH" maxlength="2" onblur="AoDeixarCampo(this)"> : 
-                        <input class="InfoSexagesimal" id="Minuto" type="text" placeholder="MM" maxlength="2" onblur="AoDeixarCampo(this)"> :
-                        <input class="InfoSexagesimal" id="Segundo" type="text" placeholder="SS" maxlength="2" onblur="AoDeixarCampo(this)">
-
-                        <button type="button" value="Converter" onclick="AoClicarConverterParaDecimal()">Converter</button>
-                        <input class="Resultado" id="ResultadoDecimal" type="text" placeholder="Resultado" disabled="disabled">
-                    </form>
-                    <!-- <input type="button" value="Limpar" onclick="AoClicarLimpar()"> -->
+        <div id="Pagina">
+            <header>
+                <div id="Cabecalho">
+                    <div id="Logo">
+                        <h1>Web Tools</h1>
+                    </div>
+                    <nav id="Navegacao">
+                        <a href="">Validadores</a>
+                        <a href="">Conversores</a>
+                    </nav>
                 </div>
-                <div>
-                    <p>
-                        
-                    </p>
-                </div>
-            </div>
+            </header>    
+            <!-- <h2>Conversor de sistemas numéricos</h2> -->
+            <!-- <div id="Conteudo">
+                <div class="Conversores">
+                    <h3>Conversor de horas para número decimal</h3>
+                    <div>
+                        <form action="">
+                            <input class="InfoSexagesimal" id="Hora" type="text" placeholder="HH" maxlength="2" onblur="AoDeixarCampo(this)"> : 
+                            <input class="InfoSexagesimal" id="Minuto" type="text" placeholder="MM" maxlength="2" onblur="AoDeixarCampo(this)"> :
+                            <input class="InfoSexagesimal" id="Segundo" type="text" placeholder="SS" maxlength="2" onblur="AoDeixarCampo(this)">
     
-            <div class="Conversores">
-                <h3>Conversor número decimal para horas</h3>
-                <div>
-                    <form action="">
-                        <input id="InfoDecimal" type="text" placeholder="Valor decimal" onblur="AoDeixarCampo(this)">
-                        <button type="submit" onclick="AoClicarConverterParaHora()">Converter</button>
-                        <input class="Resultado" id="ResultadoSexagesimal" type="text" placeholder="Resultado" disabled="disabled">
-                    </form>
-
-
-                    <!-- <input type="button" value="Limpar" onclick="AoClicarLimpar()"> -->
+                            <button type="button" value="Converter" onclick="AoClicarConverterParaDecimal()">Converter</button>
+                            <input class="Resultado" id="ResultadoDecimal" type="text" placeholder="Resultado" disabled="disabled">
+                        </form>
+                        <input type="button" value="Limpar" onclick="AoClicarLimpar()">
+                    </div>
                 </div>
-            </div>
+        
+                <div class="Conversores">
+                    <h3>Conversor número decimal para horas</h3>
+                    <div>
+                        <form action="">
+                            <input id="InfoDecimal" type="text" placeholder="Valor decimal" onblur="AoDeixarCampo(this)">
+                            <button type="submit" onclick="AoClicarConverterParaHora()">Converter</button>
+                            <input class="Resultado" id="ResultadoSexagesimal" type="text" placeholder="Resultado" disabled="disabled">
+                        </form>
+                        <input type="button" value="Limpar" onclick="AoClicarLimpar()">
+                    </div>
+                </div>
+            </div> -->
         </div>
     </body>
     <script src="JS/Logica.js"></script>
