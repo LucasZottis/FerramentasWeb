@@ -4,6 +4,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link rel="stylesheet" href="CSS/Reset.css">
         <link rel="stylesheet" href="CSS/Estilo.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,10 +41,10 @@
                             <input class="InfoSexagesimal" id="Minuto" type="text" placeholder="MM" maxlength="2" onblur="AoDeixarCampo(this)"> :
                             <input class="InfoSexagesimal" id="Segundo" type="text" placeholder="SS" maxlength="2" onblur="AoDeixarCampo(this)">
     
-                            <button type="button" value="Converter" onclick="AoClicarConverterParaDecimal()">Converter</button>
+                            <button class="BotaoConversor" type="button" value="Converter" onclick="AoClicarConverterParaDecimal()">Converter</button>
                             <input class="Resultado" id="ResultadoDecimal" type="text" placeholder="Resultado" disabled="disabled">
                         </form>
-                        <input type="button" value="Limpar" onclick="AoClicarLimpar()">
+                        <!-- <input type="button" value="Limpar" onclick="AoClicarLimpar()"> -->
                     </div>
                 </div>
         
@@ -52,10 +53,10 @@
                     <div>
                         <form action="">
                             <input id="InfoDecimal" type="text" placeholder="Valor decimal" onblur="AoDeixarCampo(this)">
-                            <button type="submit" onclick="AoClicarConverterParaHora()">Converter</button>
+                            <button class="BotaoConversor" type="submit" onclick="AoClicarConverterParaHora()">Converter</button>
                             <input class="Resultado" id="ResultadoSexagesimal" type="text" placeholder="Resultado" disabled="disabled">
                         </form>
-                        <input type="button" value="Limpar" onclick="AoClicarLimpar()">
+                        <!-- <input type="button" value="Limpar" onclick="AoClicarLimpar()"> -->
                     </div>
                 </div>
             </div>
