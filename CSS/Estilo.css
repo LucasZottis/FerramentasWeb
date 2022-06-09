@@ -95,6 +95,10 @@ h2 {
 }
 
 .Resultado {
+    background-color: transparent;
+    border: 0px;
+    color: black;
+    font-weight: bold;
     display: inline-block;
     margin: 2px 0px;
 }
@@ -115,5 +119,9 @@ h2 {
 
 #InfoDecimal, .Resultado {
     text-align: right;
-    width: 110px;
+    width: 125px;
+}
+
+#InfoDecimal, .InfoSexagesimal, .BotaoConversor {
+    font-size: 0.85em;
 }
