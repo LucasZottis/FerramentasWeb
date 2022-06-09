@@ -1,0 +1,69 @@
+* {
+    background-color: rgb(242, 240, 240);
+    font-family: 'Overlock', cursive;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    background-color: white;
+    height: 95%;
+    width: 1000px;
+    margin: auto;
+}
+
+#Navegacao {
+    background: rgb(173, 230, 178);
+    display: inline-flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#Navegacao ul {
+    display: flex;
+    width: 20%;
+}
+
+#Navegacao li {
+    cursor: pointer;
+    list-style: none;
+    line-height: 2;
+    text-align: center;
+    width: 50%;
+}
+
+#Navegacao li:link, a, a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+#Navegacao a:hover{
+    border-bottom: 1px solid black;
+}
+
+#Conteudo{
+    background: rgb(173, 230, 178);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.397);
+    display: flex;
+    height: 120px;
+    margin-top: 30px;
+    margin-left: auto;
+    width: 750px;
+    border-radius: 7.5px;
+}
+
+#Cabecalho{
+    background: rgb(173, 230, 178);
+}
+
+#Logo {
+    text-align: center;
+}
+
+#Logo h1 {
+    font-size: 2em;
+}
