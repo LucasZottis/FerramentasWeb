@@ -55,14 +55,6 @@ function AoClicarConverterParaDecimal() {
     RevalidarCampo(elementoSegundo)
 }
 
-// function AoDigitarCaractere(evento) {
-//     const keyCode = (evento.keyCode ? evento.keyCode : evento.wich)
-
-//     if (keyCode < 47 && keyCode > 58) {
-//         return false
-//     }
-// }
-
 function AoDeixarCampo(campo) {
     if (campo.value === "") {
         return

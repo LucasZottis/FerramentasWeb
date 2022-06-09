@@ -44,9 +44,8 @@
         
                                 <button class="BotaoConversor" type="button" value="Converter" onclick="AoClicarConverterParaDecimal()">Converter</button>    
                             </div>
-                            <input class="Resultado" id="ResultadoDecimal" type="label" disabled="disabled">
+                            <input class="Resultado" id="ResultadoDecimal" type="label" value="0.0000">
                         </form>
-                        <!-- <input type="button" value="Limpar" onclick="AoClicarLimpar()"> -->
                     </div>
                 </div>
         
@@ -55,12 +54,11 @@
                     <div>
                         <form action="">
                             <div>
-                                <input id="InfoDecimal" type="text" pattern="[0-9]" placeholder="Valor decimal" onblur="AoDeixarCampo(this)">
+                                <input id="InfoDecimal" type="text" placeholder="Valor decimal" onblur="AoDeixarCampo(this)">
                                 <button class="BotaoConversor" type="button" onclick="AoClicarConverterParaHora()">Converter</button>    
                             </div>
-                            <input class="Resultado" id="ResultadoSexagesimal" type="text" disabled="disabled">
+                            <input class="Resultado" id="ResultadoSexagesimal" type="text" value="00:00:00">
                         </form>
-                        <!-- <input type="button" value="Limpar" onclick="AoClicarLimpar()"> -->
                     </div>
                 </div>
             </div>

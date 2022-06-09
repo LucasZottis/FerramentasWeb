@@ -98,7 +98,7 @@ h2 {
     background-color: transparent;
     border: 0px;
     color: black;
-    font-weight: bold;
+    /* font-weight: bold; */
     display: inline-block;
     margin: 2px 0px;
 }
