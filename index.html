@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
@@ -37,11 +38,13 @@
                     <h3>Conversor de horas para número decimal</h3>
                     <div>
                         <form action="">
-                            <input class="InfoSexagesimal" id="Hora" type="text" placeholder="HH" maxlength="2" onblur="AoDeixarCampo(this)"> : 
-                            <input class="InfoSexagesimal" id="Minuto" type="text" placeholder="MM" maxlength="2" onblur="AoDeixarCampo(this)"> :
-                            <input class="InfoSexagesimal" id="Segundo" type="text" placeholder="SS" maxlength="2" onblur="AoDeixarCampo(this)">
-    
-                            <button class="BotaoConversor" type="button" value="Converter" onclick="AoClicarConverterParaDecimal()">Converter</button>
+                            <div>
+                                <input class="InfoSexagesimal" id="Hora" type="text" placeholder="HH" maxlength="2" onblur="AoDeixarCampo(this)"> : 
+                                <input class="InfoSexagesimal" id="Minuto" type="text" placeholder="MM" maxlength="2" onblur="AoDeixarCampo(this)"> :
+                                <input class="InfoSexagesimal" id="Segundo" type="text" placeholder="SS" maxlength="2" onblur="AoDeixarCampo(this)">
+        
+                                <button class="BotaoConversor" type="button" value="Converter" onclick="AoClicarConverterParaDecimal()">Converter</button>    
+                            </div>
                             <input class="Resultado" id="ResultadoDecimal" type="text" placeholder="Resultado" disabled="disabled">
                         </form>
                         <!-- <input type="button" value="Limpar" onclick="AoClicarLimpar()"> -->
@@ -52,8 +55,10 @@
                     <h3>Conversor número decimal para horas</h3>
                     <div>
                         <form action="">
-                            <input id="InfoDecimal" type="text" pattern="[0-9]" placeholder="Valor decimal" onblur="AoDeixarCampo(this)">
-                            <button class="BotaoConversor" type="button" onclick="AoClicarConverterParaHora()">Converter</button>
+                            <div>
+                                <input id="InfoDecimal" type="text" pattern="[0-9]" placeholder="Valor decimal" onblur="AoDeixarCampo(this)">
+                                <button class="BotaoConversor" type="button" onclick="AoClicarConverterParaHora()">Converter</button>    
+                            </div>
                             <input class="Resultado" id="ResultadoSexagesimal" type="text" placeholder="Resultado" disabled="disabled">
                         </form>
                         <!-- <input type="button" value="Limpar" onclick="AoClicarLimpar()"> -->
