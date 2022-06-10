@@ -1,14 +1,17 @@
 :root {
     --CorPadrao: #29A7FB;
-    --CorTextoTomAzul: #0063a4;
-    
+    --CorSecundaria: white;
+
+    --CorTextoTomAzulPrimario: #29A7FB;
+    --CorTextoTomAzulSecundario: #0063a4;
+    --CorTextoClaro: white;
+
     --BotaoCorFundo: #29a7fb85;
     --BotaoClicadoCorFundo: #0063a4;
 }
 
 * {
     font-family: 'Overlock', cursive;
-    font-size: 16px;
 }
 
 button {
@@ -17,7 +20,7 @@ button {
 }
 
 body {
-    background-color: rgb(64, 64, 64) ;
+    background-color: #1e1e1ef2 ;
     height: 95%;
     width: 1000px;
     margin: auto;
@@ -26,11 +29,12 @@ body {
 /* Cabeçalho */
 
 #Cabecalho{
-    background: var(--CorPadrao)
+    background: var(--CorPadrao);
+    color: white;
 }
 
 #Logo {
-    color: white;
+
     text-align: center;
 }
 
@@ -59,7 +63,7 @@ body {
     width: 50%;
 }
 
-#Navegacao li:link, a, a:visited {
+#Navegacao li:link, #Navegacao a, #Navegacao a:visited {
     color: white;
     text-decoration: none;
 }
@@ -70,11 +74,41 @@ body {
 
 /* Fim de Cabeçalho */
 
+#SubMenu {
+    background-color: var(--CorPadrao);
+    float: left;
+    height: 520px;
+    margin: 15px 0px;
+    width: 330px;
+}
+
+#SubMenu li {
+    margin: 10px;
+    padding: 5px;
+}
+
+#SubMenu a, #SubMenu a:visited {
+    color: var(--CorTextoClaro);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#SubMenu a:hover {
+    text-decoration: underline;
+}
+
 #Conteudo{
     background: var(--CorPadrao);
+    color: var(--CorTextoTomAzulPrimario);
     height: 520px;
     margin-top: 15px;
     margin-left: auto;
-    padding-top: 2px;
-    width: 750px;
+    width: 655px;
+}
+
+#Texto {
+    background-color: var(--CorSecundaria);
+    height: 90%;
+    padding: 10px;
+    margin: 10px 10px;
 }
