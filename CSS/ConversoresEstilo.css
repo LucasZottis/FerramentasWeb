@@ -1,12 +1,14 @@
 .Conversores {
     background: white;
-    border-radius: 7.5px;
-    margin: 10px;
+    margin: 20px auto;
     padding: 10px 15px;
     width: 90%;
 }
 
 .Conversores h3 {
+    background-color: var(--CorPadrao);
+    color: white;
+    padding: 5px 10px;
     margin-bottom: 10px;
 }
 
@@ -18,23 +20,21 @@
 .Resultado {
     background-color: transparent;
     border: 0px;
-    color: black;
+    color: var(--CorTextoTomAzul);
     display: inline-block;
     margin: 2px 0px;
 }
 
 .BotaoConversor {
-    border-width: 1px;
-    border-color: rgba(0, 0, 0, 0.404);
-    border-radius: 5px;
-    box-shadow: 1px 1px 1px rgb(173, 230, 178);
-    background-color: rgb(173, 230, 178);
+    background-color: var(--BotaoCorFundo);
+    color: var(--CorTextoTomAzul);
     margin: 0px 2px;
     padding: 2px 5px;
 }
 
 .BotaoConversor:active {
-    background-color: rgba(138, 189, 142, 0.397);
+    background-color: var(--BotaoClicadoCorFundo);
+    color: white;
 }
 
 #InfoDecimal, .Resultado {
@@ -44,10 +44,10 @@
 
 #InfoDecimal, .InfoSexagesimal {
     background-color: white;
+    border: 1px solid rgba(192, 192, 192, 0.701);
 }
 
 #InfoDecimal, .InfoSexagesimal, .BotaoConversor {
-    border-radius: 3px;
-    border: 1px solid rgba(192, 192, 192, 0.701);
+    border-radius: 2px;
     font-size: 0.85em;
 }

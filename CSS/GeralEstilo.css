@@ -1,22 +1,45 @@
+:root {
+    --CorPadrao: #29A7FB;
+    --CorTextoTomAzul: #0063a4;
+    
+    --BotaoCorFundo: #29a7fb85;
+    --BotaoClicadoCorFundo: #0063a4;
+}
+
 * {
-    background-color: rgb(242, 240, 240);
     font-family: 'Overlock', cursive;
     font-size: 16px;
 }
 
 button {
+    border: none;
     cursor: pointer;
 }
 
 body {
-    background-color: white;
+    background-color: rgb(64, 64, 64) ;
     height: 95%;
     width: 1000px;
     margin: auto;
 }
 
+/* Cabeçalho */
+
+#Cabecalho{
+    background: var(--CorPadrao)
+}
+
+#Logo {
+    color: white;
+    text-align: center;
+}
+
+#Logo h1 {
+    font-size: 2em;
+}
+
 #Navegacao {
-    background: rgb(173, 230, 178);
+    background: transparent;
     display: inline-flex;
     justify-content: space-around;
     margin-top: 10px;
@@ -37,33 +60,21 @@ body {
 }
 
 #Navegacao li:link, a, a:visited {
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
 #Navegacao a:hover{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
 }
+
+/* Fim de Cabeçalho */
 
 #Conteudo{
-    background: rgb(173, 230, 178);
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.397);
-    display: flex;
-    height: 120px;
-    margin-top: 30px;
+    background: var(--CorPadrao);
+    height: 520px;
+    margin-top: 15px;
     margin-left: auto;
+    padding-top: 2px;
     width: 750px;
-    border-radius: 7.5px;
-}
-
-#Cabecalho{
-    background: rgb(173, 230, 178);
-}
-
-#Logo {
-    text-align: center;
-}
-
-#Logo h1 {
-    font-size: 2em;
 }
