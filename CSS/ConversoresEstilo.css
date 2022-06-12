@@ -1,5 +1,4 @@
 .Conversores {
-    background: white;
     margin: 20px auto;
     padding: 10px 15px;
     width: 90%;
@@ -12,23 +11,24 @@
     margin-bottom: 10px;
 }
 
+.Dados{
+
+}
+
 .InfoSexagesimal {
     text-align: center;
     width: 30px;
 }
 
 .Resultado {
-    background-color: transparent;
-    border: 0px;
     color: var(--CorTextoTomAzul);
-    display: inline-block;
     margin: 2px 0px;
 }
 
 .BotaoConversor {
     background-color: var(--BotaoCorFundo);
     color: var(--CorTextoTomAzul);
-    margin: 0px 2px;
+    margin: 5px 0px;
     padding: 2px 5px;
 }
 
@@ -37,7 +37,11 @@
     color: white;
 }
 
-#InfoDecimal, .Resultado {
+.Invalidacoes {
+
+}
+
+#InfoDecimal {
     text-align: right;
     width: 125px;
 }

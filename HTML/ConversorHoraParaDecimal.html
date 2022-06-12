@@ -1,27 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+
+        <link rel="stylesheet" href="../CSS/Reset.css">
+        <link rel="stylesheet" href="../CSS/GeralEstilo.css">
+        <link rel="stylesheet" href="../CSS/ConversoresEstilo.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Overlock&display=swap" rel="stylesheet">
+        
+        <title>Ferramentas Web</title>
     </head>
     <body>
-        <div class="Conversores">
-            <h3>Conversor de horas para número decimal</h3>
-            <div>
-                <form action="">
-                    <div>
-                        <input class="InfoSexagesimal" id="Hora" type="text" placeholder="HH" maxlength="2" onblur="AoDeixarCampo(this)"> : 
-                        <input class="InfoSexagesimal" id="Minuto" type="text" placeholder="MM" maxlength="2" onblur="AoDeixarCampo(this)"> :
-                        <input class="InfoSexagesimal" id="Segundo" type="text" placeholder="SS" maxlength="2" onblur="AoDeixarCampo(this)">
-
-                        <button class="BotaoConversor" type="button" value="Converter" onclick="AoClicarConverterParaDecimal()">Converter</button>    
+        <header>
+            <div id="Cabecalho">
+                <div id="Logo">
+                    <h1>Web Tools</h1>
+                </div>
+                <nav id="Navegacao">
+                    <ul>
+                        <li>
+                            <a href="">Conversores</a>
+                        </li>
+                        <li>
+                            <a href="">Validadores</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div id="Pagina">
+            <nav id="SubMenu">
+                <ul>
+                    <li>
+                        <a href="./HTML/ConversorHoraParaDecimal.html">Conversor hora, minuto e segundo para número decimal</a>
+                    </li>
+                    <li>
+                        <a href="./HTML/ConversorDecimalParaHora.html">Conversor número decimal para hora, minuto e segundo</a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="AreaConteudo">   
+                <div id="Conteudo">
+                    <div class="Conversores">
+                        <h3>Conversor de horas para número decimal</h3>
+                        <div id="AreaDados">
+                            <div class="Dados">
+                                <form action="">
+                                    <div>
+                                        Horas: <input class="InfoSexagesimal" id="Hora" type="text" placeholder="00" maxlength="2" onblur="AoDeixarCampo(this)"> : 
+                                        Minutos: <input class="InfoSexagesimal" id="Minuto" type="text" placeholder="00" maxlength="2" onblur="AoDeixarCampo(this)"> :
+                                        Segundos: <input class="InfoSexagesimal" id="Segundo" type="text" placeholder="00" maxlength="2" onblur="AoDeixarCampo(this)">
+                                    </div>
+                                    <p class="Resultado">
+                                        
+                                    </p>
+                                    <!-- <button class="BotaoConversor" type="button" value="Converter" onclick="AoClicarConverterParaDecimal()">Converter</button>  -->
+                                </form>
+                            </div>
+                            <div class="Invalidacoes">
+                                <p>
+                                    
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <input class="Resultado" id="ResultadoDecimal" type="label" value="0.0000">
-                </form>
+                </div>
             </div>
         </div>
     </body>
+    <!-- <script src="../JS/ConversorHoraDecimal.js"></script> -->
 </html>

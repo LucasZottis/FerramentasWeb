@@ -74,9 +74,23 @@ body {
 
 /* Fim de Cabeçalho */
 
+#AreaConteudo{
+    background: var(--CorPadrao);
+    color: var(--CorTextoTomAzulPrimario);
+    display: flex;
+    justify-content: center;
+    height: 520px;
+    margin-top: 15px;
+    margin-left: auto;
+    width: 655px;
+}
+
+#Pagina {
+    display: flex;
+}
+
 #SubMenu {
     background-color: var(--CorPadrao);
-    float: left;
     height: 520px;
     margin: 15px 0px;
     width: 330px;
@@ -97,18 +111,8 @@ body {
     text-decoration: underline;
 }
 
-#Conteudo{
-    background: var(--CorPadrao);
-    color: var(--CorTextoTomAzulPrimario);
-    height: 520px;
-    margin-top: 15px;
-    margin-left: auto;
-    width: 655px;
-}
-
-#Texto {
+#Conteudo {
     background-color: var(--CorSecundaria);
-    height: 90%;
-    padding: 10px;
-    margin: 10px 10px;
+    margin: 15px auto;
+    width: 95%;
 }
