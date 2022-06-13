@@ -1,3 +1,7 @@
+hr{
+    color: rgba(192, 192, 192, 0.701);
+}
+
 .Conversores {
     margin: 20px auto;
     padding: 10px 15px;
@@ -11,18 +15,39 @@
     margin-bottom: 10px;
 }
 
-.Dados{
-
+.InfoSexagesimal {
+    margin: 0px auto;
 }
 
-.InfoSexagesimal {
+.InfoSexagesimal input {
+    background-color: white;
+
+    border-top: 0px solid;
+    border-right: 0px solid;
+    border-bottom: 1px solid;
+    border-left: 0px solid;
+    border-color: rgba(192, 192, 192, 0.701);
+
     text-align: center;
     width: 30px;
 }
 
-.Resultado {
-    color: var(--CorTextoTomAzul);
-    margin: 2px 0px;
+#Resultado {
+    margin: 25px auto;
+    width: 100%;
+}
+
+#Resultado td {
+    border: 1px solid rgba(192, 192, 192, 0.701);
+    padding: 2px 5px;
+}
+
+#Resultado th {
+    border: 1px solid rgba(192, 192, 192, 0.701);
+}
+
+#HorasDecimais, #MinutosDecimais, #SegundosDecimais {
+    text-align: right;
 }
 
 .BotaoConversor {
@@ -37,18 +62,15 @@
     color: white;
 }
 
-.Invalidacoes {
-
+#Campos {
+    display: block;
+    margin: 0px auto;
+    width: 50%;
 }
 
 #InfoDecimal {
     text-align: right;
     width: 125px;
-}
-
-#InfoDecimal, .InfoSexagesimal {
-    background-color: white;
-    border: 1px solid rgba(192, 192, 192, 0.701);
 }
 
 #InfoDecimal, .InfoSexagesimal, .BotaoConversor {

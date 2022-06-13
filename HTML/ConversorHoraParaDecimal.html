@@ -47,31 +47,43 @@
             <div id="AreaConteudo">   
                 <div id="Conteudo">
                     <div class="Conversores">
-                        <h3>Conversor de horas para número decimal</h3>
+                        <h3>Conversor de horas</h3>
                         <div id="AreaDados">
                             <div class="Dados">
                                 <form action="">
-                                    <div>
-                                        Horas: <input class="InfoSexagesimal" id="Hora" type="text" placeholder="00" maxlength="2" onblur="AoDeixarCampo(this)"> : 
-                                        Minutos: <input class="InfoSexagesimal" id="Minuto" type="text" placeholder="00" maxlength="2" onblur="AoDeixarCampo(this)"> :
-                                        Segundos: <input class="InfoSexagesimal" id="Segundo" type="text" placeholder="00" maxlength="2" onblur="AoDeixarCampo(this)">
+                                    <div id="Campos">
+                                        <span class="InfoSexagesimal">Horas: <input id="Hora" type="text" placeholder="0" maxlength="2" onblur="AoDeixarCampo()"></span>
+                                        <span class="InfoSexagesimal">Minutos: <input id="Minuto" type="text" placeholder="0" maxlength="2" onblur="AoDeixarCampo()"></span>
+                                        <span class="InfoSexagesimal">Segundos: <input id="Segundo" type="text" placeholder="0" maxlength="2" onblur="AoDeixarCampo()"></span>    
                                     </div>
-                                    <p class="Resultado">
-                                        
-                                    </p>
-                                    <!-- <button class="BotaoConversor" type="button" value="Converter" onclick="AoClicarConverterParaDecimal()">Converter</button>  -->
                                 </form>
+                                <table id="Resultado">
+                                    <thead>
+                                        <tr>
+                                            <th>Valor decimal em</th>
+                                            <th>Valor</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Horas</td>
+                                            <td id="HorasDecimais">0.0000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Minutos</td>
+                                            <td id="MinutosDecimais">0.0000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Segundos</td>
+                                            <td id="SegundosDecimais">0</td>
+                                        </tr>
+                                    </thead>
+                                </table>
                             </div>
-                            <div class="Invalidacoes">
-                                <p>
-                                    
-                                </p>
-                            </div>
+                            <hr>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
-    <!-- <script src="../JS/ConversorHoraDecimal.js"></script> -->
+    <script src="../JS/ConversorHoraDecimal.js"></script>
 </html>

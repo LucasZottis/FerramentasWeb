@@ -1,88 +1,36 @@
 var mensagem = ""
+var mensagemResultado = ""
+
+var horasDecimais = 0
+var minutosDecimais = 0
+var segundosDecimais = 0
+
+var horas = 0
+var minutos = 0
+var segundos = 0
+
+var campoHoras = document.getElementById("Hora")
+var campoMinutos = document.getElementById("Minuto")
+var campoSegundos = document.getElementById("Segundo")
 
 //#region Eventos
 
-function AoClicarConverterParaHora() {
-    var elementoDecimal = document.getElementById("InfoDecimal")
-    var valorDecimal = parseFloat(elementoDecimal.value.replace(',', '.'))
+function AoDeixarCampo() {  
+    horas = (VerificarNumeroInvalido(parseInt(campoHoras.value)) ? 0 : parseInt(campoHoras.value))
+    campoHoras.value = horas
+    horasDecimais = horas
 
-    if (VerificarNumeroInvalido(valorDecimal)){
-        mensagem += "Valor decimal inválido!"
-        InvalidarCampo(elementoDecimal)
-        LimparCampo(elementoDecimal)
-    }
+    minutos = (VerificarNumeroInvalido(parseInt(campoMinutos.value)) || parseInt(campoMinutos.value) > 59 ? 0 : parseInt(campoMinutos.value))
+    campoMinutos.value = minutos
+    minutosDecimais = ConverterMinutoParaDecimal(minutos)
 
-    if (VerificarTemMensagem()) {
-        MostrarMensagem()
-        return
-    }
+    segundos = (VerificarNumeroInvalido(parseInt(campoSegundos.value))  || parseInt(campoSegundos.value) > 59 ? 0 : parseInt(campoSegundos.value))
+    campoSegundos.value = segundos
+    segundosDecimais = ConverterSegundosParaDecimal(parseInt(segundos))
 
-    var valorHora = ConverterDecimalParaSexagesimal(valorDecimal)
-    document.getElementById("ResultadoSexagesimal").value = valorHora
-    RevalidarCampo(elementoDecimal)
-}
-
-function AoClicarConverterParaDecimal() {
-    var elementoHora = document.getElementById("Hora")
-    var elementoMinuto = document.getElementById("Minuto")
-    var elementoSegundo = document.getElementById("Segundo")
-    
-    if (!ExecutarValidacaoCampoHora(elementoHora)) {
-        InvalidarCampo(elementoHora)
-        LimparCampo(elementoHora)
-    }
-
-    if (!ExecutarValidacaoCampoMinutoESegundo(elementoMinuto)) {
-        InvalidarCampo(elementoMinuto)
-        LimparCampo(elementoMinuto)
-    }
-    
-    if(!ExecutarValidacaoCampoMinutoESegundo(elementoSegundo)) {
-        InvalidarCampo(elementoSegundo)
-        LimparCampo(elementoSegundo)
-    }
- 
-    if (VerificarTemMensagem()) {
-        MostrarMensagem()
-        return
-    }
-
-    var resultado = ConverterSexagesimalParaDecimal(parseFloat(elementoHora.value), parseFloat(elementoMinuto.value),parseFloat(elementoSegundo.value))
-    document.getElementById("ResultadoDecimal").value = resultado.toFixed(4)
-
-    RevalidarCampo(elementoHora)
-    RevalidarCampo(elementoMinuto)
-    RevalidarCampo(elementoSegundo)
-}
-
-function AoDeixarCampo(campo) {
-    if (campo.value === "") {
-        return
-    }
-
-    if (campo.id.toLowerCase() === "InfoDecimal" ) {
-        if (VerificarNumeroInvalido(parseFloat(campo.value))){
-            mensagem += "Valor decimal inválido!"
-        } else {
-            RevalidarCampo(campo)
-        }
-    } else if (campo.id.toLowerCase() === "hora") {
-        if (ExecutarValidacaoCampoHora(campo)) {
-            RevalidarCampo(campo)
-            return
-        }
-    } else {
-        if (ExecutarValidacaoCampoMinutoESegundo(campo)) {
-            RevalidarCampo(campo)
-            return
-        }
-    }
- 
-    if (VerificarTemMensagem()) {
-        MostrarMensagem()
-        InvalidarCampo(campo)
-        LimparCampo(campo)
-    }
+    document.getElementById("HorasDecimais").innerText = (horasDecimais + minutosDecimais + segundosDecimais).toFixed(4)
+    document.getElementById("MinutosDecimais").innerText = ((horasDecimais + minutosDecimais + segundosDecimais) * 60).toFixed(4)
+    document.getElementById("SegundosDecimais").innerText = ((horasDecimais + minutosDecimais + segundosDecimais) * 3600).toFixed(4)
 }
 
 //#endregion Eventos
@@ -130,11 +78,14 @@ function VerificarNumeroInvalido(numero) {
 
 //#endregion Verificações
 
-function ConverterSexagesimalParaDecimal(hora, minuto, segundo) {
-    var minutoDecimal = minuto / 60
-    var segundoDecimal = segundo / 3600
+function ConverterMinutoParaDecimal(minuto) {
+    minuto = minuto === 0 ? 0 : minuto
+    return minuto / 60
+}
 
-    return hora + minutoDecimal + segundoDecimal
+function ConverterSegundosParaDecimal(segundos) {
+    segundos = segundos === 0 ? 0 : segundos 
+    return segundos / 3600
 }
 
 function ConverterDecimalParaSexagesimal(valorDecimal) {
