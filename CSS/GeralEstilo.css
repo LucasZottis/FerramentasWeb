@@ -34,11 +34,16 @@ body {
 }
 
 #Logo {
-
     text-align: center;
 }
 
-#Logo h1 {
+#Logo a, #Logo a:visited, #Logo a:link, #Logo a:hover {
+    text-decoration: none;
+}
+
+#Logo a h1 {
+    display: inline;
+    color: white;
     font-size: 2em;
 }
 

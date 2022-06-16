@@ -1,0 +1,7 @@
+#Pagina {
+    background-color: var(--CorPadrao);
+    border: 1px solid red;
+    height: 520px;
+    margin: 15px auto;
+    width: 100%; 
+}
