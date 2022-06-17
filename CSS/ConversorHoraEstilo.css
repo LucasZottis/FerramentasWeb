@@ -33,21 +33,8 @@ hr{
 }
 
 #Resultado {
-    margin: 25px auto;
-    width: 100%;
-}
-
-#Resultado td {
-    border: 1px solid rgba(192, 192, 192, 0.701);
-    padding: 2px 5px;
-}
-
-#Resultado th {
-    border: 1px solid rgba(192, 192, 192, 0.701);
-}
-
-#HorasDecimais, #MinutosDecimais, #SegundosDecimais {
     text-align: right;
+    width: 50%;
 }
 
 .BotaoConversor {
@@ -64,8 +51,14 @@ hr{
 
 #Campos {
     display: block;
-    margin: 0px auto;
-    width: 50%;
+    margin-top: 5px;
+    width: 100%;
+}
+
+#Dados {
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
 }
 
 #InfoDecimal {
@@ -76,4 +69,15 @@ hr{
 #InfoDecimal, .InfoSexagesimal, .BotaoConversor {
     border-radius: 2px;
     font-size: 0.85em;
+}
+
+#Formula {
+    font-size: 0.5em;
+    padding: 5px;
+    width: 100%;
+}
+
+#ValorDecimal {
+    margin-top: 5px;
+    width: 50px;
 }

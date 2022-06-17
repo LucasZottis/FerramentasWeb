@@ -7,7 +7,7 @@
 
         <link rel="stylesheet" href="../CSS/Reset.css">
         <link rel="stylesheet" href="../CSS/GeralEstilo.css">
-        <link rel="stylesheet" href="../CSS/ConversoresEstilo.css">
+        <link rel="stylesheet" href="../CSS/ConversorHoraEstilo.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +37,7 @@
             <nav id="SubMenu">
                 <ul>
                     <li>
-                        <a href="./HTML/ConversorHoraParaDecimal.html">Conversões com hora</a>
+                        <a href="ConversorHoras.html">Conversões com hora</a>
                     </li>
                     <li>
                         <a href=""></a>
@@ -49,36 +49,51 @@
                     <div class="Conversores">
                         <h3>Conversor de horas</h3>
                         <div id="AreaDados">
-                            <div class="Dados">
+                            <div id="Dados">
                                 <form action="">
                                     <div id="Campos">
-                                        <span class="InfoSexagesimal">Horas: <input id="Hora" type="text" placeholder="0" maxlength="2" onblur="AoDeixarCampo()"></span>
-                                        <span class="InfoSexagesimal">Minutos: <input id="Minuto" type="text" placeholder="0" maxlength="2" onblur="AoDeixarCampo()"></span>
-                                        <span class="InfoSexagesimal">Segundos: <input id="Segundo" type="text" placeholder="0" maxlength="2" onblur="AoDeixarCampo()"></span>    
+                                        <span class="InfoSexagesimal">Horas: <input id="Hora" type="text" placeholder="0" maxlength="3" onblur="AoDeixarCampo()"></span>
+                                        <span class="InfoSexagesimal">Minutos: <input id="Minuto" type="text" placeholder="0" maxlength="3" onblur="AoDeixarCampo()"></span>
+                                        <span class="InfoSexagesimal">Segundos: <input id="Segundo" type="text" placeholder="0" maxlength="3" onblur="AoDeixarCampo()"></span>
+                                        <br>
+                                        <span class="InfoSexagesimal">Valor decimal: <input id="ValorDecimal" type="text" placeholder="0,0000" maxlength="6" onblur="AoDeixarCampo()"></span>
                                     </div>
                                 </form>
-                                <table id="Resultado">
-                                    <thead>
-                                        <tr>
-                                            <th>Valor decimal em</th>
-                                            <th>Valor</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Horas</td>
-                                            <td id="HorasDecimais">0.0000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Minutos</td>
-                                            <td id="MinutosDecimais">0.0000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Segundos</td>
-                                            <td id="SegundosDecimais">0</td>
-                                        </tr>
-                                    </thead>
-                                </table>
+                                <div id="Resultado">
+                                    <p id="HorasDecimais">
+                                        <br> Horas em número decimal <br> <span>0,000</span>
+                                    </p>
+                                    <p id="MinutosDecimais">
+                                        <br> Minutos em número decimal <br> <span>0,000</span>
+                                    </p>
+                                    <p id="SegundosDecimais">
+                                        <br> Segundos em número decimal <br> <span>0,000</span>
+                                    </p>
+                                    <p id="HoraConvertida">
+                                        <br> Hora convertida <br> <span>00:00:00</span>
+                                    </p>
+                                </div>
                             </div>
                             <hr>
+                            <div id="Formula">
+                                <h3>Saiba como converter horas, minutos e segundo em decimal</h3>
+                                <h5>Processo de conversão passo a passo</h5>
+                                <br>
+                                <p>
+                                    Suponha que você deseja converter 1 hora, 15 minutos e 36 segundos para decimal. Para tranformar esse valor em horas decimais, siga as etapas abaixo:
+                                </p>
+                                <br>
+                                <p>
+                                    Divida o valor em minutos por 60 (isto é, 15/60 = 0,25).
+                                    Divida os segundos por 3600 (isto é, 36/3600 = 0,01).
+                                    Sume os dois valores acima para obter a parte fracionária (isto é 0,25 + 0,01 = 0,26).
+                                    O resultado final será 1 + 0,26 = 1,26 horas em decimal.                                
+                                </p>
+                                <br>
+                                <p>
+                                    Em suma: horas decimais = número inteiro de horas, mais minutos divididos por 60, mais segundos divididos por 3600. 
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
